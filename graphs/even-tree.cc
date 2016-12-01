@@ -1,3 +1,5 @@
+// Solution to https://www.hackerrank.com/challenges/even-tree
+
 #include <cstdio>
 #include <vector>
 #include <list>
@@ -46,15 +48,20 @@ int main() {
   }
     
 
+  /* 
+     Move pointers up from leaves towards root
+     counting descendants of a node, untill we arrive
+     at a fully descendants counted node with pair descendants,
+     and that is an even tree
+  */
   while(keep_searching){
     list<int>::iterator it = leaves.begin();
     keep_searching = false;
         
-    while(it != leaves.end()){
-      //      cerr << *it << endl;
+    while(it!= leaves.end()){
       if(adjacencies[*it].size() == 1){
         // We have an even tree
-        if(descendants[*it]%2 == 0){
+        if(descendants[*it]%2 == 0 and descendants[*it]>0){
           removable_edges++;
           descendants[*it] = 0;
         }
@@ -62,15 +69,18 @@ int main() {
         prev = *it;
         *it = *adjacencies[*it].begin();
         adjacencies[*it].erase(prev);
+        adjacencies[prev].erase(*it);
                
-        if(adjacencies[*it].size()>1)
+        if(adjacencies[*it].size()>=1)
           keep_searching = true;
+        
         descendants[*it]+= descendants[prev];
       }
             
       it++;
     }
-        
+
+    leaves.sort();
     leaves.unique();
   }
     
