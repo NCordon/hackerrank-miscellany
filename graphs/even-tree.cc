@@ -50,7 +50,7 @@ int main() {
 
   /* 
      Move pointers up from leaves towards root
-     counting descendants of a node, untill we arrive
+     counting descendants of a node, until we arrive
      at a fully descendants counted node with pair descendants,
      and that is an even tree
   */
@@ -71,17 +71,20 @@ int main() {
         adjacencies[*it].erase(prev);
         adjacencies[prev].erase(*it);
                
-        if(adjacencies[*it].size()>=1)
+        if(!adjacencies[*it].empty())
           keep_searching = true;
         
         descendants[*it]+= descendants[prev];
+
+        // If we don't have a leaf, we erase the pointer,
+        // because we'll arrive there eventually from another leaf
+        if(!adjacencies[*it].size() == 1)
+          it = leaves.erase(it);
+        else
+          it++;
       }
-            
       it++;
     }
-
-    leaves.sort();
-    leaves.unique();
   }
     
   cout << removable_edges << endl;
