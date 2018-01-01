@@ -4,20 +4,24 @@
 using namespace std;
 
 int main(){
-    int s;
-    cin >> s;
-    for(int a0 = 0; a0 < s; a0++){
-        int n;
-        cin >> n;
-        vector<int> climb_ways(n + 1, 0);
-        climb_ways[0] = 1;
+  int s;
+  cin >> s;
+  vector<int> climb_ways{1};
+  int current_climb_ways;
+  
+  for(int a0 = 0; a0 < s; a0++){
+    int n;
+    cin >> n;
+
+    for(int i = climb_ways.size(); i <= n; i++){
+      current_climb_ways = 0;
       
-        for(int i = 1; i <= n; i++){
-          for(int step = 1; i - step >= 0 && step <= 3; step++){
-            climb_ways[i] += climb_ways[i - step];
-          }
+      for(int step = 1; i - step >= 0 && step <= 3; step++){
+        current_climb_ways += climb_ways[i - step];
       }
-        cout << climb_ways[n] << endl;
+      climb_ways.push_back(current_climb_ways);
     }
-    return 0;
+    cout << climb_ways[n] << endl;
+  }
+  return 0;
 }
