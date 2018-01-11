@@ -1,14 +1,14 @@
 //https://www.hackerrank.com/contests/womens-codesprint-2/challenges/minimum-loss/
 #include <bits/stdc++.h>
 using namespace std;
-typedef multiset<long>::iterator ms_it;
+typedef multiset<long, less<long> >::iterator ms_it;
 
 
 long minimum_loss(vector <long> price){
   long min_loss = numeric_limits<long>::max();
   long current_loss;
   // Increasing ordered
-  multiset<long> remaining_prices(price.begin(), price.end());
+  multiset<long, less<long> > remaining_prices(price.begin(), price.end());
   ms_it pos_lbound, prev_lbound;
   
   /*
