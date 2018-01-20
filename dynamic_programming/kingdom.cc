@@ -1,5 +1,5 @@
+// https://www.hackerrank.com/challenges/kingdom-division/
 #include <bits/stdc++.h>
-
 using namespace std;
 
 long long maximum = 1E9 + 7;
