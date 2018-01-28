@@ -6,7 +6,7 @@ using namespace std;
 Solution for this problem is based on the fact
 that if we have an array with running xor for A,
 namely XOR, answer will be XOR[R] ^ XOR[L-1]. 
-e.g. 3^0^4 = (0^1^3)^(0^1^3^0^4)
+e.g. 3^0^4 = (0^1)^(0^1^3^0^4)
 
 Due to space constraints we cannot store whole XOR,
 but we can come up with a formula that gives us 
