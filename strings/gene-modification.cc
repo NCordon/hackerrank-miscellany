@@ -10,7 +10,18 @@ struct GeneCount{
   long A; 
   long C;
   long G;
-  long T;  
+  long T;
+  
+  long& operator[](char g){
+    if (g == 'A')
+      return A;
+    else if (g == 'C')
+      return C;
+    else if (g == 'G')
+      return G;
+    else
+      return T;
+  }
 };
 
 bool operator<(const GeneCount& count_one, const GeneCount& count_two) {
@@ -33,17 +44,6 @@ GeneCount operator-(const GeneCount& count_one, const GeneCount& count_two) {
   return result;
 }
 
-void UpdateCount(GeneCount& current, char g) {
-  if (g == 'A')
-    current.A++;
-  else if (g == 'C')
-    current.C++;
-  else if (g == 'G')
-    current.G++;
-  else if (g == 'T')
-    current.T++;
-}
-
 long ShortestModification(string genes, int n) {
   long result = n;
   vector<GeneCount> counts(n + 1);
@@ -53,7 +53,7 @@ long ShortestModification(string genes, int n) {
   // Compute cumulative counts of each gene
   for (long i = 1; i <= n; i++) {
     counts[i] = counts[i - 1];
-    UpdateCount(counts[i], genes[i - 1]);
+    counts[i][genes[i - 1]]++;
   }
   
   GeneCount target;
