@@ -1,2 +1,2 @@
-# hackerrank-miscellany
-Repo to solve Hackerrank problems
+# coding-practice
+Repo to solve Hackerrank, LeetCode, CTCI,... problems
