@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/
+//https://leetcode.com/contest/weekly-contest-77/problems/max-increase-to-keep-city-skyline/
 // O(rows * cols)
 class Solution {
 public:
