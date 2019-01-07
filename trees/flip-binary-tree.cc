@@ -1,6 +1,7 @@
 #include <algorithm>
 
 // https://leetcode.com/problems/flip-binary-tree-to-match-preorder-traversal/
+// O(n) solution where n is the number of nodes of the tree
 
 /* Idea:
    Firstly, we compute the number of nodes in the tree, which should match the
