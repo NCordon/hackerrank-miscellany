@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/max-consecutive-ones-iii/
 // O(n) solution where n is the length of A
+// Sliding window approach
 class Solution {
 public:
   int longest_ones(vector<int>& A, int K) {
