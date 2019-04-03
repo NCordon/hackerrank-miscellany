@@ -18,7 +18,7 @@ public:
     return palindrome;
   }
   
-  string shortestPalindrome(string s) {
+  string shortest_palindrome(string s) {
     int p = 18181;
     int m = 26;
     int m_inv = 1;
