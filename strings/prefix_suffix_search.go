@@ -1,3 +1,7 @@
+// https://leetcode.com/problems/prefix-and-suffix-search/
+// If we have n words, since words are of length at most 10,
+// and f is going to be called at most n times, then
+// algorithmicic complexity is O(n) and space consumption is O(n)
 package main
 
 import (
