@@ -9,9 +9,21 @@ class LinkedHashMapTest extends org.scalatest.FunSuite with Matchers {
   val mapTests =
     Table(
       ("map", "toAdd", "toRemove", "expected"),
-      (LinkedHashMap(1 -> 1, 2 -> 2), Seq((4 -> 5), (5 -> 6)), Seq(1, 2, 3, 4, 5), LinkedHashMap[Int, Int]()),
-      (LinkedHashMap(1 -> 1, 2 -> 2), Seq(), Seq(1, 2, 3, 4, 5), LinkedHashMap[Int, Int]()),
-      (LinkedHashMap[Int, Int](), Seq(1 -> 2, 2 -> 3), Seq(), LinkedHashMap[Int, Int](1 -> 2, 2 -> 3))
+      ( LinkedHashMap(1 -> 1, 2 -> 2),
+        Seq((4 -> 5), (5 -> 6)),
+        Seq(1, 2, 3, 4, 5),
+        LinkedHashMap[Int, Int]()
+      ),
+      ( LinkedHashMap(1 -> 1, 2 -> 2),
+        Seq(),
+        Seq(1, 2, 3, 4, 5),
+        LinkedHashMap[Int, Int]()
+      ),
+      ( LinkedHashMap[Int, Int](),
+        Seq(1 -> 2, 2 -> 3),
+        Seq(),
+        LinkedHashMap[Int, Int](1 -> 2, 2 -> 3)
+      )
     )
 
   test("map tests") {
