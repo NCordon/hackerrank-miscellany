@@ -90,5 +90,5 @@ def main(args: String*) = {
         exit(-1)
     }
     val inputFile = new File(args(0))
-    println(solvePuzzle(inputFile))
+    solvePuzzle(inputFile)
 }
